@@ -5,8 +5,7 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
-
-import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -15,20 +14,21 @@ import java.util.List;
  */
 public class WriteSymptomInFile {
 
-	public void SetSymptoms(List<String> maliste, String fileName) {
+	public void SetSymptoms(Map<String, Integer> myMap, String fileName) {
 		
-		
-
 		try {
 			FileWriter writer = new FileWriter(fileName);// create a new file
 
-			for (String key : maliste) {
-				writer.write(key + " = " + maliste + "\n");
+			//Write the list (with key and value) in file line by line
+			for (Map.Entry<String, Integer> pairEntry: myMap.entrySet()) {
 				
+				//System.out.println(pairEntry.getKey() + " : " + pairEntry.getValue());
+				
+				writer.write(pairEntry.getKey() + " = " + pairEntry.getValue() + "\n");
 			}
 			writer.close();
 		} catch (IOException  e) {
-			// TODO Auto-generated catch block
+			System.out.println("An error occurred.");
 			e.printStackTrace();
 		} 
 

@@ -1,7 +1,12 @@
 package com.hemebiotech.analytics;
 
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 
@@ -13,23 +18,36 @@ public class AnalyticsCounter {
 
 	
 	public static void main(String args[]) throws Exception {
-		
-		
+
+
 		// get symptoms from file symptom.txt
 		ReadSymptomDataFromFile Reads = new ReadSymptomDataFromFile(filepath); // reading symptoms
 
-		List<String> liste = Reads.GetSymptoms(); // symptom list
-		//System.out.println(liste);
+		List<String> list = Reads.GetSymptoms(); // symptom list
+		//System.out.println(list);
 		
+		Set<String> symptomsUnique = new HashSet<String>(list); // list of symptoms without recurrence
+		//System.out.println(symptomsUnique);
+		
+		Map<String, Integer> symptomsFinalList = new HashMap<String, Integer>();// Create list that contains symptoms with recurrence
+
+		for (String elem : symptomsUnique) {
+
+			int i = Collections.frequency(list, elem);
+			//System.out.println("element: " + elem + " i: " + i);
+			
+
+			symptomsFinalList.put(elem, i);
+		}
+		
+		//System.out.println(symptomsFinalList);
 
 
-		
-		// writing symptoms in alphabetical order
+		//write symptoms in file
 		WriteSymptomInFile result = new WriteSymptomInFile();
 
-		result.SetSymptoms(liste, fileResult);
-		//System.out.println(result);
-		
+		result.SetSymptoms(symptomsFinalList, fileResult);
+
 
 	}
 
