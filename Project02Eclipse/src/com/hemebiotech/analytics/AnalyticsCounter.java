@@ -26,21 +26,9 @@ public class AnalyticsCounter {
 		List<String> list = Reads.GetSymptoms(); // symptom list
 		//System.out.println(list);
 		
-		Set<String> symptomsUnique = new HashSet<String>(list); // list of symptoms without recurrence
-		//System.out.println(symptomsUnique);
+		//Get list of symptoms with occurrences
+		Map<String, Integer> symptomsFinalList = CountSymptom.SymptomsOccurrences(list);
 		
-		Map<String, Integer> symptomsFinalList = new HashMap<String, Integer>();// Create list that contains symptoms with recurrence
-
-		for (String elem : symptomsUnique) {
-
-			int i = Collections.frequency(list, elem);
-			//System.out.println("element: " + elem + " i: " + i);
-			
-
-			symptomsFinalList.put(elem, i);
-		}
-		
-		//System.out.println(symptomsFinalList);
 
 
 		//write symptoms in file
