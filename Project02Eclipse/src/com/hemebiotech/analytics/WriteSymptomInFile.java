@@ -9,12 +9,19 @@ import java.util.Map;
 
 
 /**
+ * <p> Write symptoms in new file </p>
  * @author Nabs
- *
  */
 public class WriteSymptomInFile {
 
-	public void SetSymptoms(Map<String, Integer> myMap, String fileName) {
+	/**
+	 * <p> Create new file and set list of symptoms </p>
+	 * @param myMap <p> list that contains symptoms
+	 * @param fileName <p> file name </p>
+	 * @throws IOException <p> error during the writing procedure </p>
+	 * @see FileWriter
+	 */
+	public void SetSymptoms(Map<String, Integer> myMap, String fileName) throws IOException {
 		
 		try {
 			FileWriter writer = new FileWriter(fileName);// create a new file
@@ -31,7 +38,5 @@ public class WriteSymptomInFile {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		} 
-
 	}
-
 }
