@@ -48,8 +48,6 @@ public class AnalyticsCounter {
 						
 		//write symptoms in file
 		WriteSymptomInFile writing = new WriteSymptomInFile();
-		writing.SetSymptoms(symptomsFinalList, fileResult);
-		
+		writing.SetSymptoms(symptomsFinalList, fileResult);	
 	}
-	
 }

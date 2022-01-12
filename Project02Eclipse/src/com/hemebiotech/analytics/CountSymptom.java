@@ -22,7 +22,6 @@ public class CountSymptom {
 
 	public static Map<String, Integer> SymptomsOccurrences(List<String> list) { 
 
-
 		Set<String> symptomsUnique = new HashSet<String>(list); // list of symptoms without occurrences
 
 		Map<String, Integer> symptomsWithOccurences = new HashMap<String, Integer>();// Create list (Map) that contains symptoms with occurrence

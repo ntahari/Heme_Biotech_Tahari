@@ -1,6 +1,3 @@
-/**
- * Write symptoms in new file 
- */
 package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
