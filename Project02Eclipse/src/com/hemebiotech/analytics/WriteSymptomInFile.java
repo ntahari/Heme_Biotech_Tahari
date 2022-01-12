@@ -25,9 +25,7 @@ public class WriteSymptomInFile {
 
 			//Write the list (with key and value) in file line by line
 			for (Map.Entry<String, Integer> pairEntry: myMap.entrySet()) {
-				
-				//System.out.println(pairEntry.getKey() + " : " + pairEntry.getValue());
-				
+								
 				writer.write(pairEntry.getKey() + " = " + pairEntry.getValue() + "\n");
 			}
 			writer.close();

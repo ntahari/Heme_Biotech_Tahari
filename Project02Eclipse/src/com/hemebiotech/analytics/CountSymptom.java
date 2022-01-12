@@ -22,15 +22,16 @@ public class CountSymptom {
 
 	public static Map<String, Integer> SymptomsOccurrences(List<String> list) { 
 
-		Set<String> symptomsUnique = new HashSet<String>(list); // list of symptoms without occurrences
+		// list of symptoms without occurrences
+		Set<String> symptomsUnique = new HashSet<String>(list); 
 
-		Map<String, Integer> symptomsWithOccurences = new HashMap<String, Integer>();// Create list (Map) that contains symptoms with occurrence
+		// Create list (Map) that contains symptoms with occurrence
+		Map<String, Integer> symptomsWithOccurences = new HashMap<String, Integer>();
 
 		for (String elem : symptomsUnique) {
-
+			
 			// counts the number of times the symptom occurs in the specified list
 			int i = Collections.frequency(list, elem);
-
 			symptomsWithOccurences.put(elem, i);
 		}
 		return symptomsWithOccurences;
